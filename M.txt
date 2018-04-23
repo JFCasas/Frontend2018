@@ -324,6 +324,31 @@ Botones en pantallas pequeñas van a tener una orientación vertical
 
 
 
+PEUDOLEMENTOS EN PARRAFOS
+
+
+.pseudoparrafo{
+
+  position:relative;
+}
+
+.pseudoparrafo:after{
+
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: .1em;
+  bottom: -1.5em;
+  background-color: #fc4349;
+  left: 0em;
+  
+}
+
+
+
+
+
+
 
 
 

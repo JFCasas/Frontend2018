@@ -82,9 +82,28 @@ body,html{
 	color:#fc4349;
 }
 
+.pseudoparrafo{
+
+	position:relative;
+}
+
+.pseudoparrafo:after{
+
+	content: "";
+	position: absolute;
+	width: 20%;
+	height: .1em;
+	bottom: -1.5em;
+	background-color: #fc4349;
+	left: 0em;
+	
+}
+
 
 
 .contenedor-imagen{
+
+	
 
 	display:flex;
 	justify-content: center;
