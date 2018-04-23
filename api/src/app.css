@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+
+body,html{
+
+	margin:0;
+	padding: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.full-height{
+
+	height: 100%;
+}
+
+
+
+.container{
+
+	width: 70vw;
+
+	height:100vh;
+
+	margin: 0 auto;
+}
+
+
+.container-parallax{
+
+	width: 70vw;
+
+	height:40vh;
+
+	margin: 0 auto;
+}
+
+.container-contactos{
+
+	width: 70vw;
+
+	height:50vh;
+
+	margin: 0 auto;
+}
+
+.contenedor-texto{
+
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	font-weight: 200;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	word-spacing: 0.2em;
+
+}
+
+.contenedor-texto h1{
+
+	text-transform: uppercase;
+	font-style: italic;
+	font-size: 2em;
+	font-weight: 100;
+	color:#fc4349;
+}
+
+.contenedor-texto h2{
+
+	text-transform: uppercase;
+	font-style: italic;
+	font-size: 2em;
+	font-weight: 100;
+	color:#fc4349;
+}
+
+.contenedor-contactos h2{
+
+	text-transform: uppercase;
+	font-style: italic;
+	font-size: 2em;
+	font-weight: 100;
+	color:#fc4349;
+}
+
+
+
+.contenedor-imagen{
+
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	padding: 2em;
+
+	border: 2px solid #ccc;
+	border-radius: .5em ;
+
+
+
+}
+
+
+.subcontenedor-imagen{
+
+	position: relative;
+}
+
+.subcontenedor-imagen2{
+
+	position: relative;
+	
+	height: 60%;
+
+	background: url("../public/business-code-coding-270360.jpg");
+	background-size: cover;
+	background-position: center;
+
+	border: 2px solid #ccc;
+	border-radius: .5em ;
+}
+
+
+
+.imagen{
+
+	height: 90%;
+	width:100%;
+	border-radius: .5em ;
+}
+
+.texto-imagen{
+
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	color: #d7dadb;
+
+}
+
+.btn{
+
+	font-size: 1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	
+	padding: 1em;
+	letter-spacing: .2em;
+	transition: all 0.5s  linear;
+	color: #000;
+}
+
+.btn:hover{
+	
+	color:#fc4349;
+
+}
+
+
+.parallax{
+
+	position: relative;
+	z-index: 50;
+	
+	height: 49vh;
+
+	background: url("../public/black-and-white-waves-close-up-view-circle.jpg");
+	background-size: cover;
+	background-position: center;
+
+	background-attachment: fixed;
+}
+
+
+.contenedor-contactos{
+
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	
+}
+
+.anim-underline {
+  
+  
+  position: relative;
+  text-align: center;
+  
+}
+
+.anim-underline:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #fc4349;
+  animation: width 0.5s;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  border-radius: 2px;
+}
+
+.anim-underline:hover:before {
+        
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+
+
+
+
+
+
+
+/*Colores
+
+rojo: fc4349
+
+grey: d7dadb
+
+blue: 2c3e50
+
+lightblue: 6dbcdb
+
+rose: b76e79*/
+
+
+/*Fuente
+
+Source Sans Pro*/
+
+
+@media (max-width: 960px){
+
+	.container-parallax{
+
+		display: none;
+	}
+
+	
+	.contenedor-imagen{
+
+		height: 80%;
+	}
+
+	.contenedor-contactos{
+
+		flex-direction: column;
+	}
+
+
+}
+

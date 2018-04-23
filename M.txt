@@ -1,0 +1,332 @@
+WEBPACK
+
+Instalación de Webpack
+
+npm install webpack --save-dev
+
+
+Creamos un archivo de configuración básico de webpack de la siguiente manera
+
+
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: './src/index.js'
+    
+  },
+  
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: './src/index.template.html'
+    })
+  ],
+  
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+
+Instalamos 
+
+html-webpack-plugin
+
+npm install --save-dev html-webpack-plugin
+
+clean-webpack-plugin
+
+npm install --save-dev clean-webpack-plugin
+
+
+Instalamos
+
+webpack-cli
+
+
+npm install --save-dev webpack-cli
+
+
+
+Choosing a Development Tool
+
+
+Podemos utilizar npm run build para compilar nuestro código.
+
+You can instruct webpack to "watch" all files within your dependency graph for changes. If one of these files is updated, the code will be recompiled so you don't have to run the full build manually.
+
+
+Una opción todavía mejor es utilizar webpack-dev-server
+
+De momento no la utilizamos. Vamos a correr el servidor con el servidor estatico de Node
+
+
+#static
+
+
+
+CONFIGURAR CSS Y WEBPACK
+
+LOADING CSS
+
+In order to import a CSS file from within a JavaScript module, you need to install and add the style-loader and css-loader to your module configuration:
+
+npm install --save-dev style-loader css-loader
+
+Nuestro archivo de configuración va a quedar de la siguiente manera:
+
+
+
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: './src/index.js'
+    
+  },
+  
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: './src/index.template.html'
+    })
+  ],
+
+  module: {
+    rules: [
+      {
+         test: /\.css$/,
+         use: [
+           'style-loader',
+           'css-loader'
+         ]
+      }
+    ]
+  },
+  
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+
+
+En nuestro index.js
+
+import './app.css'
+
+
+
+
+LAYOUT
+
+
+Estructura de la página:
+
+
+En nuestro template creamos una estructura de HTML 5
+
+Importante poner el metadato para el viewport
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+Esencial para que cuando cargue página en dispositivos móviles lo haga con tamaño adecuado y escala adecuada.
+
+
+Para el tema del layout vamos a usar flexboxgrid
+
+En nuestro index.js
+
+import './app.css'
+import './flexboxgrid.min.css'
+
+
+Importante la utilización de clases de flexboxgrid para adecuar las columnas a diferentes dispositivos.
+
+
+Para centrar elementos en un contenedor vamos a usar flex
+
+
+Muy importante la parte de la fuente para dar estilo a nuestra página
+
+
+font-weight: 200;
+font-size: 1.2em;
+line-height: 1.5em;
+word-spacing: 0.2em;
+
+font-weight para estilizar nuestra fuente
+
+line-height para hacer respirar a nuestros parrafos
+
+
+Importación de la fuente en nuestro css
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+
+Utlización de nuestra fuente:
+
+font-family: 'Source Sans Pro', sans-serif;
+
+
+
+Imagen
+
+Lo dejamos como teoría simplemente. Dejamaos la anterior construcción.
+
+Instalamos url-loader
+
+npm install --save-dev url-loader
+
+webpack.config.js
+
+Añadimos:
+
+module: {
+     rules: [
+      {
+         test: /\.css$/,
+         use: [
+           'style-loader',
+           'css-loader'
+         ]
+      },
+      { test: /\.jpg$/, loader: 'url-loader' }
+    ]
+  },
+
+
+<div class="subcontenedor-imagen2">
+            
+
+</div>
+
+.subcontenedor-imagen2{
+
+  position: relative;
+  
+  height: 60%;
+
+  background: url("../public/business-code-coding-270360.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+EFECTO PARALLAX
+
+
+<!-- 2º SECCION. PARALLAX -->
+
+<section class="container">
+
+  <div class="row full-height">
+
+    <div class="col-xs-12 ">
+
+      <div class="parallax">
+          
+      </div>
+      
+    </div>
+
+
+  </div>
+  
+
+</section>
+
+
+.parallax{
+
+  
+  
+  height: 49vh;
+
+  background: url("../public/business-code-coding-270360.jpg");
+  background-size: cover;
+  background-position: center;
+
+  background-attachment: fixed;
+}
+
+La clave esta en:
+
+   background-attachment: fixed;
+
+
+
+
+AJUSTE COM MEDIA QUERIES
+
+Para que se vea bien en dispositivos móviles vamos a hacer las siguientes modificaciones en nuestro CSS
+
+Consideramos una clase container2 para nuestra tercera seccion, para que no se vea afectada la primera sección.
+
+Quitamos el parallax
+
+@media (max-width: 960px){
+
+  .container-parallax{
+
+    display: none;
+  }
+
+  .container2{
+
+    margin-top: 5em;
+  }
+
+}
+
+
+
+SECCION CONTACTOS
+
+También haremos uso de media queries.
+
+Botones en pantallas pequeñas van a tener una orientación vertical
+
+
+@media (max-width: 960px){
+
+  .container-parallax{
+
+    display: none;
+  }
+
+  
+  .contenedor-imagen{
+
+    height: 80%;
+  }
+
+  .contenedor-contactos{
+
+    flex-direction: column;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
