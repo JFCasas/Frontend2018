@@ -346,6 +346,145 @@ PEUDOLEMENTOS EN PARRAFOS
 
 
 
+AJUSTE COM MEDIA QUERIES
+
+
+Desechamos las soluciones anteriores para pantallas pequeñas.
+
+Un tema importante es que para los contenedores en vez de dar un height de 100vh
+
+Vamos a dar un min-height de 100vh
+
+.container{
+
+  width: 70vw;
+  min-height:100vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+Posteriormente las media queries quedan de la siguiente manera:
+
+@media (max-width: 960px){
+
+  .container-parallax{
+
+    display: none;
+  }
+
+  .contenedor-contactos{
+
+    flex-direction: column;
+  }
+
+}
+
+
+
+
+
+GOOGLE MAPS
+
+www.latlong.net. Sirve para calcular longitud y latitud de un emplazamiento
+
+console.developers.google.com para obtener la key.
+
+No la utilizamos.
+
+
+Creamos un nuevo map.js
+
+google.maps.event.addDomListener(window, 'load', drawMap);
+
+function drawMap(){
+    var map;
+    var mapOptions = {
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
+    
+    map.setCenter({
+
+      lat: 40.416728,
+      lng: -3.703339
+
+    });
+}
+
+map.js lo tenemos que integrar en nuestro grafo
+
+index.js
+
+import './app.css'
+import './flexboxgrid.min.css'
+import './map.js'
+
+
+
+Colocar un marcador:
+
+google.maps.event.addDomListener(window, 'load', drawMap);
+
+function drawMap(){
+    let map;
+
+    const coordenadas = {
+
+      lat: 40.416728,
+      lng: -3.703339
+    }
+    let mapOptions = {
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('google_canvas'), mapOptions);
+    
+    map.setCenter(coordenadas);
+
+    let marker = new google.maps.Marker({
+
+      position: coordenadas,
+      map: map,
+      title: 'Lorem Ipsum'
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
