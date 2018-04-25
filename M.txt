@@ -183,7 +183,7 @@ font-family: 'Source Sans Pro', sans-serif;
 
 Imagen
 
-Lo dejamos como teoría simplemente. Dejamaos la anterior construcción.
+Lo dejamos como teoría simplemente. Dejamos la anterior construcción.
 
 Instalamos url-loader
 
@@ -453,6 +453,109 @@ function drawMap(){
       title: 'Lorem Ipsum'
     })
 }
+
+
+
+
+
+NAVEGACION
+
+
+Hacemos el menu primero que ocupe toda la pantalla del dispositivo con un fondo blanco
+
+.navegacion{
+  
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: white;
+
+}
+
+Está en posición fixed con un z-index de 100 con lo cual queda por encima de todo.
+
+
+
+Lo subimos por defecto arriba del todo.
+
+Lo podemos conseguir mediante un top -101vh
+
+.navegacion{
+
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  background-color: white;
+
+  top: -101vh;
+
+}
+
+
+Mediante una clase "active" le ponemos el top a 0
+
+
+.navegacion.active{
+
+  top: 0;
+
+}
+
+
+Creamos un botón que active y desactive esa clase active para activar y desactivar nuestro menú.
+
+
+Realizamos una transición para el efecto.
+
+
+.navegacion{
+
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  background-color: white;
+
+  top: -101vh;
+
+  transition:  top 2s cubic-bezier(0.075,0.82,0.165,1);
+
+}
+
+.navegacion.active{
+
+  top: 0vh;
+
+}
+
+
+Para los iconos utilizo http://fontawesome.io/
+
+
+
+
+
+
+
+
+
 
 
 

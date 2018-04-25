@@ -1,3 +1,5 @@
 import './app.css'
 import './flexboxgrid.min.css'
 import './map.js'
+import './menu.js'
+import './iconos/fontawesome-all.css'

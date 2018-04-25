@@ -27,7 +27,13 @@ module.exports = {
            'css-loader'
          ]
       },
-      { test: /\.jpg$/, loader: 'url-loader' }
+      { test: /\.jpg$/, loader: 'url-loader' },
+      {
+         test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+         use: [
+           'file-loader'
+         ]
+      }
     ]
   },
   
