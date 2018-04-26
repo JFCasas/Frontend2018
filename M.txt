@@ -551,15 +551,53 @@ Para los iconos utilizo http://fontawesome.io/
 
 
 
+DEPLOY
+
+Deploying your React app to Heroku with Webpack
+
+https://ditrospecta.com/javascript/react/es6/webpack/heroku/2015/08/08/deploying-react-webpack-heroku.html
+
+
+
+Heroku webpack deployment with Postgres
+
+https://medium.com/@justinminh225/conquering-the-bane-of-my-existence-heroku-webpack-deployment-with-postgres-50341d952073
 
 
 
 
 
+ULTIMAS CONCLUSIONES
 
 
+module: {
+     rules: [
+      {
+         test: /\.css$/,
+         use: [
+           'style-loader',
+           'css-loader'
+         ]
+      },
+      { test: /\.(jpg|jpeg|png)$/, loader: 'file-loader' },
+      {
+         test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+         use: [
+           'file-loader'
+         ]
+      }
+    ]
+  },
 
 
+  Realizo este cambio y bundle.js se reduce dramáticamente de tamaño.
+
+  Para realizar el deploy a una carpeta prueba de mi PC me tengo que llevar el contenido de la carpeta dist + el directorio public
+
+
+  Podría llevar a cabo el deploy de mi aplicación a heroku como práctica.
+
+  
 
 
 
